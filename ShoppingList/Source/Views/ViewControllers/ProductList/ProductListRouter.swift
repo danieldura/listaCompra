@@ -7,19 +7,22 @@
 //
 
 import Foundation
+import UIKit
 
 class ProductListRouter {
-
+    
     weak var viewController: ProductListViewController?
-
-        static func getViewController() -> ProductListViewController{
+    
+    static func getViewController() -> UINavigationController{
         let viewController = ProductListViewController()
         let router = ProductListRouter()
         let viewModel = ProductListViewModel()
         
         configureModule(viewController, router, viewModel)
         
-        return viewController
+        let nv = UINavigationController(rootViewController: viewController)
+        
+        return nv
         
     }
 
